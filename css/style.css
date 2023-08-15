@@ -1,0 +1,336 @@
+/* CSS Document */
+
+/*
+h2 {
+	line-height: 12px;
+}
+p {
+	font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, "sans-serif";
+}
+img-ID {
+    overflow-clip-margin: content-box;
+    overflow: hidden;
+}
+
+.menu {
+  width: 25%;
+  float: left;
+}
+.main {
+  width: 75%;
+  float: left;
+}
+.header {
+	width: auto;
+	background-color: #3A3230;
+	margin-bottom: 10px;
+}*/
+
+
+* {
+  box-sizing: border-box;
+}
+
+[class*="col-"] {
+	float: left;
+	padding: 15px;
+  } 
+
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+/*****************************************************************/
+
+body {
+	display: grid;
+	align-content: center;
+	background: radial-gradient(circle, #f0f0f0 0%, #dbecdc 50%, #dbecdc 100%); 
+	margin: 50px 200px;
+}
+h1, h2, h3 {
+	font-family: "Century Gothic";
+}
+
+/*****************************************************************/
+
+/*
+#topCard {
+	background-color: aquamarine;
+	border-right:1px solid #000000;
+	border-left:1px solid #000000;
+	position: absolute;
+	width: auto;
+	left: 100px;
+	right: 100px;
+}*/
+#logo {
+	text-align: right;
+	padding: 10px;
+}
+#companyName {
+	text-align: left;
+	padding: 10px;
+}
+
+/*****************************************************************/
+
+.gridwrapper {
+    overflow: auto;
+    height: auto;
+	margin: 5px 0;
+	
+}
+.gridcontent {
+  	margin: 0;
+  	height: 100%;
+  	float: left;
+	border-radius: 16px;
+}
+.header{
+	width: 100%;
+	background-color: #3A3230;
+	margin-bottom: 10px;
+	text-align: center;
+	color: white;
+	border-radius: 16px;
+}
+.id-Proof {
+	margin: 16px 0px;
+	border: 2px solid #3A3230;
+	width: 97%;
+	aspect-ratio: 16/10;
+	border-radius: 16px;
+	text-align: -webkit-center;
+}
+
+/*.fill {
+	padding-left: 6px;
+}*/
+
+/*****************************************************************/
+/* Form Fill Ups *************************************************/
+/*****************************************************************/
+
+.input {
+	width: 100%;
+    height: 86px;
+    position: relative;
+    border: 1px solid #ccc;
+    margin: 10px 4px 10px 0px;
+    font-size: 20px;
+}
+
+.form-control {
+	text-overflow: ellipsis;
+	padding: 0 0 0 16px;
+	border-radius: 16px;
+	border: 2px solid #172432;
+}
+
+
+
+/*****************************************************************/
+/* CheckBox Controls *********************************************/
+/*****************************************************************/
+
+.grid-checkBox {
+	display: flex;
+	margin: 0;
+	height: 100%;
+	border-radius: 16px;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	align-items: center;
+	flex-direction: row;
+}	
+
+.control {
+	font-family: "Century Gothic";
+	display: block;
+	position: relative;
+	padding-left: 30px;
+	margin-bottom: 5px;
+	padding-top: 3px;
+	cursor: pointer;
+	font-size: 22px;
+}
+.control input {
+	position: absolute;
+	z-index: -1.5;
+	opacity: 0;
+}
+.control_indicator {
+	position: absolute;
+	top: 2px;
+	left: 0;
+	height: 26px;
+	width: 26px;
+	background: #98815A;
+	border: 0px solid #000000;
+	border-radius: 0px;
+}
+.control:hover input ~ .control_indicator,
+.control input:focus ~ .control_indicator {
+	background: #cccccc;
+}
+.control input:checked ~ .control_indicator {
+	background: #2aa1c0;
+}
+.control:hover input:not([disabled]):checked ~ .control_indicator,
+.control input:checked:focus ~ .control_indicator {
+	background: #e6647d;
+}
+.control input:disabled ~ .control_indicator {
+	background: #e6e6e6;
+	opacity: 0.6;
+	pointer-events: none;
+}
+.control_indicator:after {
+	box-sizing: unset;
+	content: '';
+	position: absolute;
+	display: none;
+}
+.control input:checked ~ .control_indicator:after {
+	display: block;
+}
+.control-checkbox .control_indicator:after {
+	left: 8px;
+	top: 4px;
+	width: 3px;
+	height: 8px;
+	border: solid #ffffff;
+	border-width: 0 2px 2px 0;
+	transform: rotate(45deg);
+}
+.control-checkbox input:disabled ~ .control_indicator:after {
+	border-color: #7b7b7b;
+}
+.control-checkbox .control_indicator::before {
+	content: '';
+	display: block;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 4.5rem;
+	height: 4.5rem;
+	margin-left: -1.3rem;
+	margin-top: -1.3rem;
+	background: #2aa1c0;
+	border-radius: 3rem;
+	opacity: 0.6;
+	z-index: 99999;
+	transform: scale(0);
+}
+.control-checkbox input + .control_indicator::before {
+	animation: s-ripple 250ms ease-out;
+}
+.control-checkbox input:checked + .control_indicator::before {
+	animation-name: s-ripple-dup;
+}
+.reverse {
+	color: whitesmoke;
+}
+.form-border {
+	border:	3px solid #3A3230;
+	margin-bottom: 10px;
+}
+.submit {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+.submit:hover {
+  background-color: #45a049;
+}
+
+/* For mobile phones: */
+@media only screen and (max-width: 1366px) {
+	[class*="col-"] {
+		width: 100%;
+	  }
+	body {
+		margin: 20px 160px;
+	}
+	
+	#logo {
+		text-align: -webkit-left;
+    	padding: 10px 10px 10px 50px;
+    	width: fit-content;
+	}
+	.input {
+		width: 100%;
+		height: 70px;
+		margin: 2px 8px 2px 0px;
+		font-size: 16px;
+	}
+	.gridwrapper {
+		overflow: auto;
+		height: auto;
+		margin: 5px 0;
+		
+	}
+	.gridwrapper-id {
+		display: grid;
+		overflow: auto;
+		height: auto;
+		margin: 5px 0;
+		
+	}
+	.gridcontent-id {
+		display: flex;
+		margin: 0;
+		height: 100%;
+		/*float: left;*/
+	  	border-radius: 16px;
+		flex-wrap: wrap;
+		align-content: center;
+		justify-content: space-evenly;
+		align-items: center;
+	}
+	.input-id {
+		width: 100%;
+		height: 70px;
+		margin: 2px 8px 2px 0px;
+		font-size: 16px;
+		padding: 0px 0px 0px 48px;
+	}
+	.form-control {
+		border: 1px solid #172432;
+	}
+	.id-Proof {
+		border: 1px solid #3A3230;
+		width: 350px;
+		aspect-ratio: 16/10;
+		border-radius: 16px;
+	}
+	.col-6 {width: 25%;}
+}
+
+
+
+/* For mobile phones: */
+@media only screen and (max-width: 768px) {
+	[class*="col-"] {
+	  width: 100%;
+	}
+	.col-checkBox {width:33.33%}
+
+  }
+
+
+    
